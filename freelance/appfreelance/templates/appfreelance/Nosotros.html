@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Freelance</title>
+    <!-- Enlace al archivo CSS de Bootstrap -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            padding-top: 80px; /* Ajustar según el tamaño del navbar */
+            padding-bottom: 50px; /* Espacio inferior */
+        }
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="./Index.html">Servicios Freelance</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./Login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="./Nosotros.html">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./registro.html">Registro</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Nosotros</h2>
+        <p>Somos un equipo de profesionales independientes apasionados por [tu área de especialización]. Con años de experiencia en la industria, nos hemos destacado por nuestro compromiso con la excelencia y la satisfacción del cliente.</p>
+
+        <h3>Nuestra Misión</h3>
+        <p>Nuestra misión es proporcionar servicios de alta calidad y soluciones innovadoras que satisfagan las necesidades específicas de nuestros clientes. Nos esforzamos por ofrecer resultados sobresalientes en cada proyecto en el que participamos, manteniendo siempre la integridad, la profesionalidad y la ética en nuestro trabajo.</p>
+
+        <h3>Nuestros Valores</h3>
+        <ul>
+            <li><strong>Compromiso con la excelencia:</strong> Buscamos siempre superar las expectativas de nuestros clientes, entregando resultados de la más alta calidad en cada proyecto.</li>
+            <li><strong>Colaboración y comunicación:</strong> Creemos en la importancia de la colaboración y la comunicación abierta y transparente con nuestros clientes.</li>
+            <li><strong>Integridad y profesionalismo:</strong> Mantenemos altos estándares de integridad y profesionalismo en todo lo que hacemos.</li>
+            <li><strong>Flexibilidad y adaptabilidad:</strong> Reconocemos la importancia de ser flexibles y adaptarnos a las necesidades cambiantes de nuestros clientes y del mercado.</li>
+        </ul>
+
+        <h3>Nuestros Servicios</h3>
+        <p>Ofrecemos una amplia gama de servicios en [tu área de especialización], incluyendo [lista de servicios que ofreces]. Desde [descripción breve de tu servicio 1] hasta [descripción breve de tu servicio 2], estamos preparados para satisfacer las necesidades de cualquier proyecto, grande o pequeño.</p>
+
+        <h3>¡Contáctanos!</h3>
+        <p>Si estás buscando profesionales independientes comprometidos, flexibles y orientados a resultados para tu próximo proyecto, ¡no dudes en ponerte en contacto con nosotros! Estamos aquí para ayudarte a alcanzar tus objetivos y hacer realidad tus ideas.</p>
+    </div>
+
+
+    <div class="home-button">
+        <a class="btn btn-primary">Home</a>
+    </div>
+
+
+    <!-- Scripts de Bootstrap (jQuery y JS de Bootstrap) -->
+    
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript personalizado -->
+    <script>
+
+  // Función para mostrar un mensaje de confirmación al hacer clic en el botón "Home"
+        document.querySelector('.home-button').addEventListener('click', function() {
+            // Mostrar un mensaje de confirmación
+            if (confirm('¿Deseas volver a la página de inicio?')) {
+                // Si el usuario confirma, redirigir a la página de inicio
+
+                window.location.href = 'Index.html';
+            }
+        });
+
+      
+    </script>
+</body>
+</html>

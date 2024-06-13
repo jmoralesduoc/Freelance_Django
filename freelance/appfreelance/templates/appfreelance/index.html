@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Frelance</title>
+    <!--<link rel="stylesheet" href="./css/Styles2.css">-->
+    {% load static %}
+    <link href="{% static 'appfreelance/css/bootstrap.min.css'  %}" rel="stylesheet">
+   
+    <link rel="stylesheet" href="{%  static 'appfreelance/css/Styles2.css' %}">
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Servicios Freelance</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./Login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./Nosotros.html">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./registro.html">Registro</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="registroModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="registroModalLabel">Información de Registro</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Regístrate para acceder a servicios exclusivos y oportunidades de trabajo freelance.</p>
+              <ul>
+                <li>Acceso a proyectos personalizados</li>
+                <li>Conexión con clientes potenciales</li>
+                <li>Soporte técnico y asesoría</li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="modalFooterCloseButton">Registrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="carousel-container">
+      <!-- Carousel wrapper -->
+      <div id="carouselBasicExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <!-- Indicators -->
+          <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselBasicExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselBasicExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselBasicExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          
+          <!-- Inner -->
+          <div class="carousel-inner">
+              <!-- Single item -->
+              <div class="carousel-item active" data-bs-interval="9000">
+                  <img src="{% static 'appfreelance/img/frelancer1.jpg' %}" class="d-block w-100" alt="Sunset Over the City">
+                  <div class="carousel-caption d-none d-md-block">
+                   <!--    <h5>First slide label</h5>
+                      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                      -->
+                  </div>
+              </div>
+              
+              <!-- Single item -->
+              <div class="carousel-item" data-bs-interval="9000">
+                  <img src="{% static 'appfreelance/img/descarga.png' %}" class="d-block w-100" alt="Canyon at Night">
+                  <div class="carousel-caption d-none d-md-block">
+                    <!-- 
+                      <h5>Second slide label</h5>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      -->
+                  </div>
+                    
+              </div>
+              
+              <!-- Single item -->
+              <div class="carousel-item" data-bs-interval="9000">
+                  <img src="{% static 'appfreelance/img/Freelancer.jpeg' %}" class="d-block w-100" alt="Cliff Above a Stormy Sea">
+                  <div class="carousel-caption d-none d-md-block">
+                    <!--
+                      <h5>Third slide label</h5>
+                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    -->
+                  </div>
+              </div>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselBasicExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselBasicExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+
+
+<!-- Tres cards debajo del carrusel -->
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card">
+              <div class="card-body">
+                <img src="{% static 'appfreelance/img/desarrollo_web.jpeg' %}" class="card-img-top" alt="...">
+                  <h5 class="card-title">Desarrollo web</h5>
+                  <p class="card-text">El servicio de desarrollo web implica crear y mantener sitios web para tu negocio. Nos encargamos de diseñar y construir una presencia online efectiva que refleje la identidad de tu marca y atraiga a tus clientes.</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="Informacion">
+                    Mas Información 
+                  </button>
+                  
+                  <!--<a href="#" class="btn btn-primary">Más información</a>-->
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card">
+              <div class="card-body" id="tipocambio">
+                <img src="{% static 'appfreelance/img/desarrollo_software.jpg' %}" class="card-img-top" alt="...">
+                  <h5 class="card-title">Tipos De cambios Hoy dia <span id="fechaSistema"></span> </h5>
+                  <div class="row">
+                  <table class="table" id="tipocambio">
+                    <thead>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card">
+              <div class="card-body">
+                <img src="{% static 'appfreelance/img/app.jpg' %}" class="card-img-top" alt="...">
+                  <h5 class="card-title">Desarrollo de aplicaciones moviles</h5>
+                  <p class="card-text">
+                    Consigue aplicaciones móviles innovadoras y adaptadas a tus necesidades. Creamos apps que mejoran la experiencia de tus usuarios y potencian tu presencia en el mercado.</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infomobil" id="infoAppMobil">
+                      Mas Información 
+                    </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Información</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>- HTML (HyperText Markup Language): Es el lenguaje fundamental para crear la estructura de las páginas web.</p>
+        <p>   - CSS (Cascading Style Sheets): Se utiliza para diseñar y dar estilo a los elementos HTML, como colores, tipografías, márgenes, etc. </p>
+        <p>   - JavaScript: Es un lenguaje de programación que se utiliza para agregar interactividad a las páginas web, como animaciones, validaciones de formularios, efectos visuales, entre otros.</p>
+        <p>  - Frameworks y Bibliotecas**: Tales como React.js, Angular, Vue.js para JavaScript, y Bootstrap, Foundation para CSS, proporcionan herramientas y estructuras predefinidas para agilizar el desarrollo web.</p>
+      </div>
+      <div class="modal-footer">
+       <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="infomobil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Información</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>   - Swift y Objective-C (iOS)</p>
+        <p>   - Kotlin y Java (Android) </p>
+        <p>   - JavaScript y TypeScript (Multiplataforma)</p>
+       
+      </div>
+      <div class="modal-footer">
+       <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Carousel wrapper  
+  
+<div class="home-button">
+  <a href="Index.html" class="btn btn-primary">Home</a>
+</div>
+-->
+
+<script src="{% static 'appfreelance/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'appfreelance/js/jquery-3.6.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'appfreelance/js/Consumo_api.js' %}"></script>
+<script>
+  
+  $(document).ready(function() {
+    $('a[href="./registro.html"]').hover(
+      function() {
+        $('#registroModal').modal('show');
+      },
+      function() {
+        // Aquí puedes definir si deseas que el modal se cierre automáticamente
+        // cuando el cursor salga del enlace. Si no, puedes dejar este bloque vacío.
+      }
+    );
+  });
+  $('#registroModal').on('hidden.bs.modal', function (e) {
+          if (!e.relatedTarget || e.relatedTarget.id !== 'modalCloseButton') {
+            window.location.href = './registro.html';
+          }
+        });
+
+        // Cerrar el modal cuando se presiona el botón "Cerrar"
+        $('#modalFooterCloseButton').on('click', function() {
+          $('#registroModal').modal('hide');
+        });
+
+        
+</script>
+ <script>
+   document.addEventListener('DOMContentLoaded', function() {
+            const boton = document.querySelector('#Informacion');
+           
+
+            
+            boton.addEventListener('mouseover', function() {
+                boton.style.backgroundColor = 'red';
+            });
+
+            boton.addEventListener('mouseout', function() {
+                boton.style.backgroundColor = '';
+            });
+                        
+           
+        });
+ </script> 
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {
+           const boton = document.querySelector('#infoAppMobil');
+          
+
+           
+           boton.addEventListener('mouseover', function() {
+               boton.style.backgroundColor = 'red';
+           });
+
+           boton.addEventListener('mouseout', function() {
+               boton.style.backgroundColor = '';
+           });
+                       
+          
+       });
+</script> 
+</body>
+</html>
