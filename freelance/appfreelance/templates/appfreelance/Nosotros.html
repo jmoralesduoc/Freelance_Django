@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
     <title>Servicios Freelance</title>
     <!-- Enlace al archivo CSS de Bootstrap -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'appfreelance/css/bootstrap.min.css' %}" rel="stylesheet">
     <style>
         .container {
             padding-top: 80px; /* Ajustar según el tamaño del navbar */
@@ -23,20 +24,20 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="./Index.html">Servicios Freelance</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Servicios Freelance</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="./Login.html">Login</a>
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="./Nosotros.html">Nosotros</a>
+                    <a class="nav-link disabled" href="{% url 'nosotros' %}">Nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./registro.html">Registro</a>
+                    <a class="nav-link" href="{% url 'registro' %}">Registro</a>
                 </li>
             </ul>
         </div>
@@ -72,7 +73,7 @@
 
     <!-- Scripts de Bootstrap (jQuery y JS de Bootstrap) -->
     
-    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'appfreelance/js/bootstrap.bundle.min.js' %}"></script>
 
     <!-- JavaScript personalizado -->
     <script>
@@ -83,7 +84,7 @@
             if (confirm('¿Deseas volver a la página de inicio?')) {
                 // Si el usuario confirma, redirigir a la página de inicio
 
-                window.location.href = 'Index.html';
+                window.location.href = "{% url 'index' %}";
             }
         });
 
