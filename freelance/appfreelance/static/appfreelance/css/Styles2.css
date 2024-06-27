@@ -1,0 +1,98 @@
+/* Estilos generales */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+}
+
+/* Columna negra */
+.black-column {
+    background-color: #3a3a3a;
+    width: 5%; 
+    height: 100%; /* 100% del tamaño de la página */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+/* Cuadros de colores */
+.color-boxes {
+    width: 20%; /* 80% del total del tamaño de la página */
+    height: 100%; /* 100% del tamaño de la página */
+    float: center; /* Para que los cuadros de colores estén al lado de la columna negra */
+}
+
+.color-box {
+    width: 80%; /* Ocupa todo el ancho de su contenedor */
+    height: 25%; /* 25% del total del tamaño de la página */
+    box-sizing: border-box;
+    float: center; /* Alinea los cuadros de colores en horizontal */
+}
+
+/* Estilos para el texto en las cajas */
+.black-column h2 {
+    color: white; /* Color del texto en los encabezados */
+    text-align: center;
+}
+.color-box h2 {
+    color: white; /* Color del texto en los encabezados */
+    text-align: center;
+}
+
+.color-box p {
+    color: rgb(255, 255, 255); /* Color del texto en los párrafos */
+    text-align: left;
+}
+.black-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.black-column li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white; /* Color inicial del texto */
+}
+
+.black-column li a:hover {
+    color: lightgrey; /* Cambia el color del texto al pasar el ratón */
+}
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.carousel-container {
+    max-width: 95%; /* Tamaño máximo del carousel */
+    margin: auto; /* Centrar el carousel */
+
+}
+
+.carousel-item img {
+      width: 300px; /* Ajustar el ancho de las imágenes al carousel */
+      height: 500px; /* Altura fija para todas las imágenes */
+      object-fit: cover; /* Cubrir el área del contenedor con la imagen */
+  }
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+.card {
+      background-color: rgba(255, 255, 255, 0.2); /* Fondo de las cards con transparencia /
+      margin-bottom: 20px; / Espacio entre las cards /
+      margin-top: 20px; / Margen superior para bajar las cards */
+  }
+
+  .card-body {
+      padding: 30px;
+  }
+
