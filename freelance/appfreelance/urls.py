@@ -12,8 +12,3 @@ urlpatterns = [
     path('olvidocontraseña/', views.olvidocontraseña, name='olvidocontraseña'),
     path('ingreso/', views.ingreso, name='ingreso'),
 
-    path('codigo_pais/', views.codigo_pais_list, name='codigo_pais_list'),
-    path('codigo_pais/new/', views.codigo_pais_create, name='codigo_pais_create'),
-    path('codigo_pais/edit/<int:id>/', views.codigo_pais_update, name='codigo_pais_update'),
-    path('codigo_pais/delete/<int:id>/', views.codigo_pais_delete, name='codigo_pais_delete'),
-]
