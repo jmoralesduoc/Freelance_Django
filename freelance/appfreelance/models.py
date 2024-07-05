@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class CodigoPais(models.Model):
     id_codigo = models.AutoField(db_column="idCodigo", primary_key=True)
     codigo_pais = models.CharField(max_length=8)
@@ -41,7 +42,7 @@ class Oferta(models.Model):
     descripción = models.TextField()
     fecha_oferta = models.DateTimeField(auto_now_add=True)
     estado = models.CharField(max_length=50, choices=[('aceptada', 'Aceptada'), ('rechazada', 'Rechazada'), ('pendiente', 'Pendiente')])
-
+    
 class Mensaje(models.Model):
     remitente = models.ForeignKey('Usuario', related_name='mensajes_enviados', on_delete=models.CASCADE, db_column='idUsuarioRemitente')
     destinatario = models.ForeignKey('Usuario', related_name='mensajes_recibidos', on_delete=models.CASCADE, db_column='idUsuarioDestinatario')
@@ -52,5 +53,3 @@ class Mensaje(models.Model):
 
     def __str__(self):
         return self.contenido[:20]
-=======
-
