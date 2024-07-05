@@ -7,7 +7,6 @@ class CodigoPaisForm(forms.ModelForm):
         fields = ['codigo_pais', 'descripcion']
 
 
-
 class UsuarioForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     id_codigo = forms.ModelChoiceField(queryset=CodigoPais.objects.all(), empty_label="Seleccione el código de país")

@@ -42,7 +42,8 @@ def olvidocontraseña(request):
     return render(request,'appfreelance/olvidocontraseña.html',context)
 
 
-def codigo_pais_list(request):
+
+    def codigo_pais_list(request):
     codigos = CodigoPais.objects.all()
     context={}
     return render(request, 'appfreelance/codigo_pais_list.html', {'codigos': codigos})
@@ -74,6 +75,3 @@ def codigo_pais_delete(request, id):
         codigo.delete()
         return redirect('codigo_pais_list')
     return render(request, 'appfreelance/codigo_pais_confirm_delete.html', {'codigo': codigo})
-   
-    
-    
