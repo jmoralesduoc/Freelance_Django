@@ -43,7 +43,7 @@ def olvidocontraseña(request):
 
 
 
-    def codigo_pais_list(request):
+def codigo_pais_list(request):
     codigos = CodigoPais.objects.all()
     context={}
     return render(request, 'appfreelance/codigo_pais_list.html', {'codigos': codigos})
