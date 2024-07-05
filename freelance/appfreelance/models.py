@@ -7,7 +7,7 @@ class CodigoPais(models.Model):
     descripcion = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.descripcion
+        return f"{self.descripcion} ({self.codigo_pais})"
 
 class Usuario(models.Model):
     id = models.AutoField(db_column='idUsuario', primary_key=True)
@@ -18,7 +18,7 @@ class Usuario(models.Model):
     email = models.EmailField(unique=True, max_length=100, blank=True, null=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     id_codigo = models.ForeignKey('CodigoPais', on_delete=models.CASCADE, db_column='idCodigo')
-
+    password = models.CharField(max_length=20)
     def __str__(self):
         return f"{self.nombre} {self.apellido_paterno}"
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Códigos de País</title>
+</head>
+<body>
+    <h2>Lista de Códigos de País</h2>
+    <a href="{% url 'codigo_pais_create' %}">Agregar Nuevo Código de País</a>
+    <ul>
+        {% for codigo in codigos %}
+        <li>
+            {{ codigo.descripcion }} ({{ codigo.codigo_pais }})
+            <a href="{% url 'codigo_pais_update' codigo.id_codigo %}">Editar</a>
+            <a href="{% url 'codigo_pais_delete' codigo.id_codigo %}">Eliminar</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
