@@ -9,6 +9,8 @@ class CodigoPais(models.Model):
     def __str__(self):
         return f"{self.descripcion} ({self.codigo_pais})"
 
+
+
 class Usuario(models.Model):
     id = models.AutoField(db_column='idUsuario', primary_key=True)
     nombre = models.CharField(max_length=20)

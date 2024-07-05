@@ -76,3 +76,4 @@ def codigo_pais_delete(request, id):
     return render(request, 'appfreelance/codigo_pais_confirm_delete.html', {'codigo': codigo})
    
     
+    
