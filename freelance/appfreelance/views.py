@@ -1,13 +1,18 @@
 from django.shortcuts import render,redirect, get_object_or_404
-from .forms import UsuarioForm,CodigoPaisForm
-from .models import CodigoPais
+from .forms import UsuarioForm,CodigoPaisForm,LoginForm
+from .models import CodigoPais,Usuario
+from django.contrib.auth import login,logout
+from .backends import UsuarioBackend
+from django.urls import reverse
+from .utils import nombre_usuario_global
 
 # Create your views here.
 
 
 def index(request):
-    context={}
-    return render(request, 'appfreelance/index.html',context)
+    nombre_usuario = nombre_usuario_global 
+
+    return render(request, 'appfreelance/index.html', {'nombre_usuario': nombre_usuario})
 
 def registro(request):
     if request.method == 'POST':
@@ -17,13 +22,51 @@ def registro(request):
             return redirect('registro_exitoso')
     else:
         form = UsuarioForm()
-    return render(request, 'registro.html', {'form': form})
+    return render(request, 'appfreelance/registro.html', {'form': form})
     
     
 
-def login(request):
-    context={}
-    return render(request,'appfreelance/login.html',context)
+
+def login_view(request):
+    error_message = None
+    global nombre_usuario_global
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            backend = UsuarioBackend()
+            user = backend.authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user, backend='appfreelance.backends.UsuarioBackend')
+                usuario = Usuario.objects.get(email=username)  
+                nombre_usuario_global = usuario.nombre
+
+                return redirect('index')
+                
+                
+            else:
+                error_message = 'Nombre de usuario o contraseña incorrectos'
+    else:
+        form = LoginForm()
+
+    return render(request, 'appfreelance/login.html', {'form': form, 'error_message': error_message})
+    
+
+
+def get_nombre_usuario(request):
+    global nombre_usuario_global
+    return nombre_usuario_global 
+
+
+def logout_view(request):
+    global nombre_usuario_global
+    nombre_usuario_global = None
+    nombre_usuario = None 
+
+    return render(request, 'appfreelance/index.html', {'nombre_usuario': nombre_usuario})
+     
+
 
 def nosotros(request):
     context={}
@@ -31,7 +74,7 @@ def nosotros(request):
 
 def login_ingreso(request):
     context={}
-    return render(request,'appfreelance/login_ingreso.html',context)
+    return render(request,'appfreelance/Login_ingreso.html',context)
 
 def ingreso(request):
     context={}
@@ -75,3 +118,6 @@ def codigo_pais_delete(request, id):
         codigo.delete()
         return redirect('codigo_pais_list')
     return render(request, 'appfreelance/codigo_pais_confirm_delete.html', {'codigo': codigo})
+
+
+

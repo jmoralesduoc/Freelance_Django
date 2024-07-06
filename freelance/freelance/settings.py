@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-aq1t0!*rfzwbeud*uvh=q-()5n=^c5aq0pb%kgb_s8hf$0uwz*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appfreelance',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'appfreelance.backends.UsuarioBackend',
+    'django.contrib.auth.backends.ModelBackend',  # Si deseas mantener el backend predeterminado de Django
 ]
 
 MIDDLEWARE = [

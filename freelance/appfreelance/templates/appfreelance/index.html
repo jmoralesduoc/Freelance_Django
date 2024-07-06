@@ -20,17 +20,38 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="nosotros">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="registro">Registro</a>
+              <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
             </li>
           </ul>
+
+           <ul class="navbar-nav">
+            {% if nombre_usuario %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" 
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ nombre_usuario }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Perfil</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'registro' %}">Registro</a>
+              </li>
+            {% endif %}
+          </ul>
+           
+            
+          
+         
         </div>
       </nav>
 
@@ -232,7 +253,7 @@
       }
     );
   });
-  $('#registroModal').on('hidden.bs.modal', function (e) {
+        $('#registroModal').on('hidden.bs.modal', function (e) {
           if (!e.relatedTarget || e.relatedTarget.id !== 'modalCloseButton') {
             window.location.href = 'registro';
           }
