@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.hashers import make_password
 
 
 class CodigoPais(models.Model):
@@ -22,6 +22,17 @@ class Usuario(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     id_codigo = models.ForeignKey('CodigoPais', on_delete=models.CASCADE, db_column='idCodigo')
     password = models.CharField(max_length=20)
+    last_login = models.DateTimeField(null=True, blank=True)
+    is_active = models.BooleanField(default=True)
+
+    USERNAME_FIELD = 'email'  # O puedes usar 'rut'
+    REQUIRED_FIELDS = ['nombre', 'apellido_paterno', 'apellido_materno', 'rut', 'id_codigo']
+
+    def save(self, *args, **kwargs):
+        if not self.pk or self.password != Usuario.objects.get(pk=self.pk).password:
+            self.password = make_password(self.password)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"{self.nombre} {self.apellido_paterno}"
 
