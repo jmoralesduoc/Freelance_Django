@@ -14,6 +14,6 @@ urlpatterns = [
 
     path('codigo_pais/', views.codigo_pais_list, name='codigo_pais_list'),
     path('codigo_pais/new/', views.codigo_pais_create, name='codigo_pais_create'),
-    path('codigo_pais/edit/<int:id>/', views.codigo_pais_update, name='codigo_pais_update'),
-    path('codigo_pais/delete/<int:id>/', views.codigo_pais_delete, name='codigo_pais_delete'),
+    path('codigo_pais/edit/<srt:pk>/', views.codigo_pais_update, name='codigo_pais_update'),
+    path('codigo_pais/delete/<str:pk>/', views.codigo_pais_delete, name='codigo_pais_delete'),
 ]

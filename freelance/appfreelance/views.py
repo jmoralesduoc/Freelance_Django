@@ -17,7 +17,7 @@ def registro(request):
             return redirect('registro_exitoso')
     else:
         form = UsuarioForm()
-    return render(request, 'registro.html', {'form': form})
+    return render(request, 'appfreelance/registro.html', {'form': form})
     
     
 
@@ -75,3 +75,4 @@ def codigo_pais_delete(request, id):
         codigo.delete()
         return redirect('codigo_pais_list')
     return render(request, 'appfreelance/codigo_pais_confirm_delete.html', {'codigo': codigo})
+
