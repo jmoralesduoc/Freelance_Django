@@ -40,7 +40,7 @@ def login_view(request):
             if user is not None:
                 login(request, user, backend='appfreelance.backends.UsuarioBackend')
                 usuario = Usuario.objects.get(email=username)  
-                nombre_usuario_global = usuario.nombre
+                nombre_usuario_global = usuario.nombre + ' ' +  usuario.apellido_paterno
 
                 return redirect('index')
                 
