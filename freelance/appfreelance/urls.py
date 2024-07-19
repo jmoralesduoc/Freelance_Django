@@ -29,6 +29,10 @@ urlpatterns = [
     path('mensajes/<int:pk>/editar/', views.mensaje_update, name='mensaje_update'),
     path('mensajes/<int:pk>/eliminar/', views.mensaje_delete, name='mensaje_delete'),
     path('oferta/create/', views.oferta_create, name='oferta_create'),
+    path('oferta/', views.oferta_list, name='oferta_list'),
+    path('oferta/<int:pk>/', views.oferta_detail, name='oferta_detail'),
+    path('oferta/<int:pk>/editar/', views.oferta_update, name='oferta_update'),
+    path('oferta/<int:pk>/eliminar/', views.oferta_delete, name='oferta_delete'),
 
 ]
 
