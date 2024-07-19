@@ -35,14 +35,27 @@
                     {{ nombre_usuario }}
                 </a>
               </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}">Salir</a>
-                </li>
+                
+
+              
                 {% if tipo_usuario == 'admin'%}
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'codigo_pais_list' %}">codigo pais</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'proyecto_list' %}">Proyectos</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'mensaje_list' %}">Mensajes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'oferta_create' %}">Ofertas</a>
+                </li>
                 {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+                </li>
             {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Login</a>

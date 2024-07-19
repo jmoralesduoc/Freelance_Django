@@ -1,0 +1,22 @@
+<!-- oferta_list.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ofertas</title>
+</head>
+<body>
+    <h2>Lista de Ofertas</h2>
+    <a href="{% url 'oferta_create' %}">Crear Oferta</a>
+    <ul>
+        {% for oferta in ofertas %}
+            <li>
+                <a href="{% url 'oferta_detail' oferta.pk %}">{{ oferta.proyecto }} - {{ oferta.freelancer }}</a>
+                <a href="{% url 'oferta_update' oferta.pk %}">Editar</a>
+                <a href="{% url 'oferta_delete' oferta.pk %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- mensaje_detail.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Mensaje</title>
+</head>
+<body>
+    <h2>Mensaje de {{ mensaje.remitente }} a {{ mensaje.destinatario }}</h2>
+    <p>{{ mensaje.contenido }}</p>
+    <p>Fecha de envío: {{ mensaje.fecha_envio }}</p>
+    <p>Leído: {{ mensaje.leido }}</p>
+    <a href="{% url 'mensaje_list' %}">Volver a la lista</a>
+</body>
+</html>

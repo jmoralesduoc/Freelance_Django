@@ -1,0 +1,18 @@
+<!-- oferta_form.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Oferta</title>
+</head>
+<body>
+    <h2>{% if form.instance.pk %}Editar Oferta{% else %}Crear Oferta{% endif %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'oferta_list' %}">Cancelar</a>
+</body>
+</html>

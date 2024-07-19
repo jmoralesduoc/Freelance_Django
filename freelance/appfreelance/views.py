@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect, get_object_or_404
-from .forms import UsuarioForm,CodigoPaisForm,LoginForm
-from .models import CodigoPais,Usuario
+from .forms import UsuarioForm,CodigoPaisForm,LoginForm,ProyectoForm,MensajeForm,OfertaForm
+from .models import CodigoPais,Usuario,Proyecto,Mensaje,Oferta
 from django.contrib.auth import login,logout
 from .backends import UsuarioBackend
 from django.urls import reverse
@@ -129,5 +129,111 @@ def codigo_pais_delete(request, id):
         return redirect('codigo_pais_list')
     return render(request, 'appfreelance/codigo_pais_confirm_delete.html', {'codigo': codigo})
 
+def proyecto_list(request):
+    proyectos = Proyecto.objects.all()
+    return render(request, 'appfreelance/proyecto_list.html', {'proyectos': proyectos})
+
+def proyecto_detail(request, pk):
+    proyecto = get_object_or_404(Proyecto, pk=pk)
+    return render(request, 'appfreelance/proyecto_detail.html', {'proyecto': proyecto})
+
+def proyecto_create(request):
+    if request.method == "POST":
+        form = ProyectoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('proyecto_list')
+    else:
+        form = ProyectoForm()
+    return render(request, 'appfreelance/proyecto_form.html', {'form': form})
+
+def proyecto_update(request, pk):
+    proyecto = get_object_or_404(Proyecto, pk=pk)
+    if request.method == "POST":
+        form = ProyectoForm(request.POST, instance=proyecto)
+        if form.is_valid():
+            form.save()
+            return redirect('proyecto_list')
+    else:
+        form = ProyectoForm(instance=proyecto)
+    return render(request, 'appfreelance/proyecto_form.html', {'form': form})
+
+def proyecto_delete(request, pk):
+    proyecto = get_object_or_404(Proyecto, pk=pk)
+    if request.method == "POST":
+        proyecto.delete()
+        return redirect('proyecto_list')
+    return render(request, 'appfreelance/proyecto_confirm_delete.html', {'proyecto': proyecto})
+
+def mensaje_list(request):
+    mensajes = Mensaje.objects.all()
+    return render(request, 'appfreelance/mensaje_list.html', {'mensajes': mensajes})
+
+def mensaje_detail(request, pk):
+    mensaje = get_object_or_404(Mensaje, pk=pk)
+    return render(request, 'appfreelance/mensaje_detail.html', {'mensaje': mensaje})
+
+def mensaje_create(request):
+    if request.method == "POST":
+        form = MensajeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('mensaje_list')
+    else:
+        form = MensajeForm()
+    return render(request, 'appfreelance/mensaje_form.html', {'form': form})
+
+def mensaje_update(request, pk):
+    mensaje = get_object_or_404(Mensaje, pk=pk)
+    if request.method == "POST":
+        form = MensajeForm(request.POST, instance=mensaje)
+        if form.is_valid():
+            form.save()
+            return redirect('mensaje_list')
+    else:
+        form = MensajeForm(instance=mensaje)
+    return render(request, 'appfreelance/mensaje_form.html', {'form': form})
+
+def mensaje_delete(request, pk):
+    mensaje = get_object_or_404(Mensaje, pk=pk)
+    if request.method == "POST":
+        mensaje.delete()
+        return redirect('mensaje_list')
+    return render(request, 'appfreelance/mensaje_confirm_delete.html', {'mensaje': mensaje})
+
+def oferta_create(request):
+    if request.method == 'POST':
+        form = OfertaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('oferta_list')  # Ajusta esto según la URL de tu lista de ofertas
+    else:
+        form = OfertaForm()
+    return render(request, 'appfreelance/oferta_create.html', {'form': form})
+
+def oferta_list(request):
+    ofertas = Oferta.objects.all()
+    return render(request, 'appfreelance/oferta_list.html', {'ofertas': ofertas})
+
+def oferta_detail(request, pk):
+    oferta = get_object_or_404(Oferta, pk=pk)
+    return render(request, 'appfreelance/oferta_detail.html', {'oferta': oferta})
 
 
+def oferta_update(request, pk):
+    oferta = get_object_or_404(Oferta, pk=pk)
+    if request.method == "POST":
+        form = OfertaForm(request.POST, instance=oferta)
+        if form.is_valid():
+            form.save()
+            return redirect('oferta_list')
+    else:
+        form = OfertaForm(instance=oferta)
+    return render(request, 'appfreelance/oferta_form.html', {'form': form})
+
+def oferta_delete(request, pk):
+    oferta = get_object_or_404(Oferta, pk=pk)
+    if request.method == "POST":
+        oferta.delete()
+        return redirect('oferta_list')
+    return render(request, 'appfreelance/oferta_confirm_delete.html', {'oferta': oferta})

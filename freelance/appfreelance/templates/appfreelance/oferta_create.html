@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Oferta</title>
+    {% load static %}
+    <link href="{% static 'appfreelance/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'appfreelance/js/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Crear Oferta</h2>
+        <form method="post" class="form">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_proyecto" class="form-label">Proyecto</label>
+                {{ form.proyecto }}
+            </div>
+            <div class="mb-3">
+                <label for="id_freelancer" class="form-label">Freelancer</label>
+                {{ form.freelancer }}
+            </div>
+            <div class="mb-3">
+                <label for="id_monto" class="form-label">Monto</label>
+                {{ form.monto }}
+            </div>
+            <div class="mb-3">
+                <label for="id_descripcion" class="form-label">Descripción</label>
+                {{ form.descripcion }}
+            </div>
+            <div class="mb-3">
+                <label for="id_estado" class="form-label">Estado</label>
+                {{ form.estado }}
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Cancelar</a>
+    </div>
+    <script src="{% static 'appfreelance/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'appfreelance/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

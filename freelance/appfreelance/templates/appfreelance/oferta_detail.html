@@ -1,0 +1,17 @@
+<!-- oferta_detail.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de la Oferta</title>
+</head>
+<body>
+    <h2>Oferta de {{ oferta.freelancer }} para {{ oferta.proyecto }}</h2>
+    <p>Descripción: {{ oferta.descripcion }}</p>
+    <p>Monto: {{ oferta.monto }}</p>
+    <p>Fecha de oferta: {{ oferta.fecha_oferta }}</p>
+    <p>Estado: {{ oferta.estado }}</p>
+    <a href="{% url 'oferta_list' %}">Volver a la lista</a>
+</body>
+</html>

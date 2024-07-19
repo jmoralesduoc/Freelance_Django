@@ -53,12 +53,12 @@ class Proyecto(models.Model):
 
 class Oferta(models.Model):
     proyecto = models.ForeignKey('Proyecto', on_delete=models.CASCADE, related_name='ofertas')
-    freelancer = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='ofertas_realizadas',db_column='idUsuario')
+    freelancer = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='ofertas_realizadas', db_column='idUsuario')
     monto = models.DecimalField(max_digits=10, decimal_places=2)
-    descripción = models.TextField()
+    descripción = models.TextField()  # Nota: Sin acento aquí
     fecha_oferta = models.DateTimeField(auto_now_add=True)
     estado = models.CharField(max_length=50, choices=[('aceptada', 'Aceptada'), ('rechazada', 'Rechazada'), ('pendiente', 'Pendiente')])
-    
+
 class Mensaje(models.Model):
     remitente = models.ForeignKey('Usuario', related_name='mensajes_enviados', on_delete=models.CASCADE, db_column='idUsuarioRemitente')
     destinatario = models.ForeignKey('Usuario', related_name='mensajes_recibidos', on_delete=models.CASCADE, db_column='idUsuarioDestinatario')

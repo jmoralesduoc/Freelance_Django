@@ -1,5 +1,5 @@
 from django import forms
-from .models import CodigoPais, Usuario, Proyecto, Oferta, Mensaje
+from .models import CodigoPais, Usuario, Proyecto, Oferta, Mensaje,Proyecto,Mensaje,Oferta
 
 class CodigoPaisForm(forms.ModelForm):
     class Meta:
@@ -41,3 +41,18 @@ class LoginForm(forms.Form):
         label="Contraseña",
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'password', 'required': 'required'})
     )
+
+class ProyectoForm(forms.ModelForm):
+    class Meta:
+        model = Proyecto
+        fields = ['usuario', 'titulo', 'descripcion', 'estado']    
+
+class MensajeForm(forms.ModelForm):
+    class Meta:
+        model = Mensaje
+        fields = ['remitente', 'destinatario', 'proyecto', 'contenido', 'leido']        
+
+class OfertaForm(forms.ModelForm):
+    class Meta:
+        model = Oferta
+        fields = ['proyecto', 'freelancer', 'monto', 'descripción', 'estado'] 
