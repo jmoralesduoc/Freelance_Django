@@ -4,15 +4,16 @@ from .models import CodigoPais,Usuario
 from django.contrib.auth import login,logout
 from .backends import UsuarioBackend
 from django.urls import reverse
-from .utils import nombre_usuario_global
+from .utils import nombre_usuario_global, tipo_usuario_global
 
 # Create your views here.
 
 
 def index(request):
     nombre_usuario = nombre_usuario_global 
+    tipo_usuario = tipo_usuario_global 
 
-    return render(request, 'appfreelance/index.html', {'nombre_usuario': nombre_usuario})
+    return render(request, 'appfreelance/index.html', {'nombre_usuario': nombre_usuario,'tipo_usuario': tipo_usuario})
 
 def registro(request):
     if request.method == 'POST':
@@ -30,6 +31,7 @@ def registro(request):
 def login_view(request):
     error_message = None
     global nombre_usuario_global
+    global tipo_usuario_global
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -41,6 +43,7 @@ def login_view(request):
                 login(request, user, backend='appfreelance.backends.UsuarioBackend')
                 usuario = Usuario.objects.get(email=username)  
                 nombre_usuario_global = usuario.nombre + ' ' +  usuario.apellido_paterno
+                tipo_usuario_global = usuario.tipo_usuario
 
                 return redirect('index')
                 
@@ -56,7 +59,14 @@ def login_view(request):
 
 def get_nombre_usuario(request):
     global nombre_usuario_global
+    
     return nombre_usuario_global 
+
+def get_tipo_usuario(request):
+    global tipo_usuario_global
+    
+    return tipo_usuario_global 
+
 
 
 def logout_view(request):

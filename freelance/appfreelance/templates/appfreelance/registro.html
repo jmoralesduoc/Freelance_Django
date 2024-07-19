@@ -71,6 +71,9 @@
       <label for="password">Password</label>
       {{ form.password }}
 
+      <label for="tipoUsuario">Tipo de Usuario:</label>
+      {{ form.tipo_usuario }}
+
       <input type="submit" value="Registrarse">
     </form>
   </div>
@@ -84,27 +87,6 @@
 
   <script src="{% static 'appfreelance/js/jquery-3.6.0.min.js' %}"></script>
   <script src="{% static 'appfreelance/js/bootstrap.bundle.min.js' %}"></script>
-
- 
- <!-- <script>
-    $(document).ready(function() {
-      // Escucha el evento submit del formulario de registro
-      $('#registrationForm').on('submit', function(event) {
-        // Previene el comportamiento predeterminado de envío del formulario
-        event.preventDefault();
-
-        // Muestra la alerta de registro exitoso
-        $('#registrationSuccessAlert').fadeIn();
-
-        $(this)[0].reset();
-
-        // Después de 3 segundos, oculta la alerta
-        setTimeout(function() {
-          $('#registrationSuccessAlert').fadeOut();
-        }, 9000);
-      });
-    });
-  </script>-->
 
   <script>
     // Función para mostrar un mensaje de confirmación al hacer clic en el botón "Home"

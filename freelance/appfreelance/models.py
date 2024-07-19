@@ -13,6 +13,10 @@ class CodigoPais(models.Model):
 
 
 class Usuario(models.Model):
+    TIPOS_USUARIO = [
+        ('admin', 'Administrador'),
+        ('cliente', 'Cliente'),
+    ]
     id = models.AutoField(db_column='idUsuario', primary_key=True)
     nombre = models.CharField(max_length=20)
     apellido_paterno = models.CharField(max_length=20)
@@ -24,6 +28,7 @@ class Usuario(models.Model):
     password = models.CharField(max_length=20)
     last_login = models.DateTimeField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
+    tipo_usuario = models.CharField(max_length=10, choices=TIPOS_USUARIO)
 
     USERNAME_FIELD = 'email'  # O puedes usar 'rut'
     REQUIRED_FIELDS = ['nombre', 'apellido_paterno', 'apellido_materno', 'rut', 'id_codigo']

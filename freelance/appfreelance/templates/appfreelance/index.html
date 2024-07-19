@@ -24,6 +24,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
             </li>
+            
           </ul>
 
            <ul class="navbar-nav">
@@ -37,7 +38,11 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'logout' %}">Salir</a>
                 </li>
-                
+                {% if tipo_usuario == 'admin'%}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'codigo_pais_list' %}">codigo pais</a>
+                </li>
+                {% endif %}
             {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Login</a>

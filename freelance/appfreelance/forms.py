@@ -12,7 +12,7 @@ class UsuarioForm(forms.ModelForm):
     id_codigo = forms.ModelChoiceField(queryset=CodigoPais.objects.all(), empty_label="Seleccione el código de país")
     class Meta:
         model = Usuario
-        fields = ['nombre', 'apellido_paterno', 'apellido_materno', 'rut', 'email', 'id_codigo', 'password']
+        fields = ['nombre', 'apellido_paterno', 'apellido_materno', 'rut', 'email', 'id_codigo', 'password','tipo_usuario']
 
 
 class ProyectoForm(forms.ModelForm):
