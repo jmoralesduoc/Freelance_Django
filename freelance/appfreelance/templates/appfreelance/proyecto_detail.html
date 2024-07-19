@@ -1,0 +1,16 @@
+<!-- proyecto_detail.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Proyecto</title>
+</head>
+<body>
+    <h2>{{ proyecto.titulo }}</h2>
+    <p>{{ proyecto.descripcion }}</p>
+    <p>Estado: {{ proyecto.estado }}</p>
+    <p>Creado en: {{ proyecto.fecha_creacion }}</p>
+    <a href="{% url 'proyecto_list' %}">Volver a la lista</a>
+</body>
+</html>

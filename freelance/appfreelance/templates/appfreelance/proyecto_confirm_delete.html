@@ -1,0 +1,18 @@
+<!-- proyecto_confirm_delete.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Eliminación</title>
+</head>
+<body>
+    <h2>¿Estás seguro de que deseas eliminar este proyecto?</h2>
+    <p>{{ proyecto.titulo }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+    </form>
+    <a href="{% url 'proyecto_list' %}">Cancelar</a>
+</body>
+</html>

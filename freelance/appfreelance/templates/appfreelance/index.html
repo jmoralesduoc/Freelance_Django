@@ -24,21 +24,38 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
             </li>
+            
           </ul>
 
            <ul class="navbar-nav">
             {% if nombre_usuario %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" 
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 aria-haspopup="true" aria-expanded="false">
                     {{ nombre_usuario }}
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Perfil</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                </div>
               </li>
+                
+
+              
+                {% if tipo_usuario == 'admin'%}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'codigo_pais_list' %}">codigo pais</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'proyecto_list' %}">Proyectos</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'mensaje_list' %}">Mensajes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'oferta_list' %}">Ofertas</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+                </li>
             {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Login</a>

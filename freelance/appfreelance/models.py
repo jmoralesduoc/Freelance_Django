@@ -13,6 +13,10 @@ class CodigoPais(models.Model):
 
 
 class Usuario(models.Model):
+    TIPOS_USUARIO = [
+        ('admin', 'Administrador'),
+        ('cliente', 'Cliente'),
+    ]
     id = models.AutoField(db_column='idUsuario', primary_key=True)
     nombre = models.CharField(max_length=20)
     apellido_paterno = models.CharField(max_length=20)
@@ -24,6 +28,7 @@ class Usuario(models.Model):
     password = models.CharField(max_length=20)
     last_login = models.DateTimeField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
+    tipo_usuario = models.CharField(max_length=10, choices=TIPOS_USUARIO)
 
     USERNAME_FIELD = 'email'  # O puedes usar 'rut'
     REQUIRED_FIELDS = ['nombre', 'apellido_paterno', 'apellido_materno', 'rut', 'id_codigo']
@@ -48,12 +53,12 @@ class Proyecto(models.Model):
 
 class Oferta(models.Model):
     proyecto = models.ForeignKey('Proyecto', on_delete=models.CASCADE, related_name='ofertas')
-    freelancer = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='ofertas_realizadas',db_column='idUsuario')
+    freelancer = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='ofertas_realizadas', db_column='idUsuario')
     monto = models.DecimalField(max_digits=10, decimal_places=2)
-    descripción = models.TextField()
+    descripción = models.TextField()  # Nota: Sin acento aquí
     fecha_oferta = models.DateTimeField(auto_now_add=True)
     estado = models.CharField(max_length=50, choices=[('aceptada', 'Aceptada'), ('rechazada', 'Rechazada'), ('pendiente', 'Pendiente')])
-    
+
 class Mensaje(models.Model):
     remitente = models.ForeignKey('Usuario', related_name='mensajes_enviados', on_delete=models.CASCADE, db_column='idUsuarioRemitente')
     destinatario = models.ForeignKey('Usuario', related_name='mensajes_recibidos', on_delete=models.CASCADE, db_column='idUsuarioDestinatario')

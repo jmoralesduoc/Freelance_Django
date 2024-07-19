@@ -1,5 +1,5 @@
 from django import forms
-from .models import CodigoPais, Usuario, Proyecto, Oferta, Mensaje
+from .models import CodigoPais, Usuario, Proyecto, Oferta, Mensaje,Proyecto,Mensaje,Oferta
 
 class CodigoPaisForm(forms.ModelForm):
     class Meta:
@@ -12,7 +12,7 @@ class UsuarioForm(forms.ModelForm):
     id_codigo = forms.ModelChoiceField(queryset=CodigoPais.objects.all(), empty_label="Seleccione el código de país")
     class Meta:
         model = Usuario
-        fields = ['nombre', 'apellido_paterno', 'apellido_materno', 'rut', 'email', 'id_codigo', 'password']
+        fields = ['nombre', 'apellido_paterno', 'apellido_materno', 'rut', 'email', 'id_codigo', 'password','tipo_usuario']
 
 
 class ProyectoForm(forms.ModelForm):
@@ -41,3 +41,18 @@ class LoginForm(forms.Form):
         label="Contraseña",
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'password', 'required': 'required'})
     )
+
+class ProyectoForm(forms.ModelForm):
+    class Meta:
+        model = Proyecto
+        fields = ['usuario', 'titulo', 'descripcion', 'estado']    
+
+class MensajeForm(forms.ModelForm):
+    class Meta:
+        model = Mensaje
+        fields = ['remitente', 'destinatario', 'proyecto', 'contenido', 'leido']        
+
+class OfertaForm(forms.ModelForm):
+    class Meta:
+        model = Oferta
+        fields = ['proyecto', 'freelancer', 'monto', 'descripción', 'estado'] 
